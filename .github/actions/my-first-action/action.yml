@@ -2,11 +2,10 @@ name: my-first-action
 run-name: Setting up Node
 runs:
   using: "composite"
-  install node:
-    runs-on: ubuntu-latest
-    steps:
-      - name: My second step - installing node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: node --v
+  runs-on: ubuntu-latest
+  steps:
+    - name: My second step - installing node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+    - run: node --v
