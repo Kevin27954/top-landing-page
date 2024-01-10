@@ -4,10 +4,15 @@ on: [push]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
+    defaults:
+        run:
+            working-directory: ./scripts
     steps:
       - name: My first step - check out repository
         uses: actions/checkout@v4
       - name: My second step - installing node
         uses: ./.github/actions/my-first-action
+      - name: My third step - running scripts
+        run: ./my-script.sh
       - run: npm install -g bats
       - run: bats -v
