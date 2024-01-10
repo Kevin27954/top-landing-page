@@ -5,8 +5,10 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - name: My first step - check out repository
+        uses: actions/checkout@v4
+      - name: My second step - installing node
+        uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install -g bats
