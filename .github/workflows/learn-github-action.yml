@@ -7,12 +7,13 @@ jobs:
     defaults:
         run:
             working-directory: scripts
+            shell: bash
     steps:
       - name: My first step - check out repository
         uses: actions/checkout@v4
       - name: My second step - installing node
         uses: ./.github/actions/my-first-action
-      - name: My third step - running scripts
+      - name: My third step - running the scripts
         run: ./my-script.sh
       - run: npm install -g bats
       - run: bats -v
