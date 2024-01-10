@@ -8,3 +8,4 @@ runs:
       with:
         node-version: '14'
     - run: node --v
+    - shell: bash
