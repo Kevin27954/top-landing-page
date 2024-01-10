@@ -7,5 +7,6 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: '14'
-    - run: node --v
-    - shell: bash
+    - id: node-version
+      run: node --v
+      shell: bash
