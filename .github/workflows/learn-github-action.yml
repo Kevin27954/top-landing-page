@@ -6,16 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
         run:
-            working-directory: scripts
+            working-directory: .github/scripts
             shell: bash
     steps:
       - name: My first step - check out repository
         uses: actions/checkout@v4
       - name: My second step - installing node
         uses: ./.github/actions/my-first-action
-      - name: Make the script files executable
-        run: chmod +x my-script.sh
+    #   - name: Make the script files executable
+    #     run: chmod +x my-script.sh
       - name: My third step - running the scripts
-        run: bash ./my-script.sh
+        run: ./my-script.sh
       - run: npm install -g bats
       - run: bats -v
