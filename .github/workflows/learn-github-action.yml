@@ -8,8 +8,6 @@ jobs:
       - name: My first step - check out repository
         uses: actions/checkout@v4
       - name: My second step - installing node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+        uses: ./.github/actions/my-first-action.yml
       - run: npm install -g bats
       - run: bats -v
