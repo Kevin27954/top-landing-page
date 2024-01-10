@@ -8,5 +8,5 @@ runs:
       with:
         node-version: '14'
     - id: node-version
-      run: node --v
+      run: node -v
       shell: bash
