@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
         run:
-            working-directory: ./scripts
+            working-directory: scripts
     steps:
       - name: My first step - check out repository
         uses: actions/checkout@v4
