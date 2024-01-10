@@ -1,1 +1,1 @@
-echo I'm testing out github actions right now
+echo "I'm testing out github actions right now"
