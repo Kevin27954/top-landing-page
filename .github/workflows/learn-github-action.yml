@@ -14,6 +14,6 @@ jobs:
       - name: My second step - installing node
         uses: ./.github/actions/my-first-action
       - name: My third step - running the scripts
-        run: ./my-script.sh
+        run: bash ./my-script.sh
       - run: npm install -g bats
       - run: bats -v
