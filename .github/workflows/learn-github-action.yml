@@ -66,4 +66,4 @@ jobs:
           gh release create "$tag" \
               --repo="$GITHUB_REPOSITORY" \
               --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
-              --n "First actual release test 2"
+              -n "First actual release test 2"
