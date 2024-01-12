@@ -1,9 +1,32 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+on: 
+  push:
+    branches:
+      -main
+  pull_request:
+
+# concurrency (only 1 workflow can run in a group at one time)
+
 jobs:
-  check-bats-version:
+  job1-check-bats-version:
+  # needs (specify what jobs needs to be complete first before running this job)
+
+  # if ${ { always() } }
+  # In this case always() makes it so that this job will always run no matter what
+  # If makes it so that this job it is under will run if the condition evaluates to true
+
+    name: My first job
     runs-on: ubuntu-latest
+
+    # strategy:
+    #   matrix:
+    #     version: [10, 12, 14]
+    #     os: [macOs, windows, ubuntu-latest]
+    # note: runs (variable.length multipled together) # of threads
+    # This will create 3 threads, each running with different version, assuming you
+    # are using the version values
+
     defaults:
         run:
             working-directory: .github/scripts
@@ -11,11 +34,34 @@ jobs:
     steps:
       - name: My first step - check out repository
         uses: actions/checkout@v4
+
       - name: My second step - installing node
         uses: ./.github/actions/my-first-action
+
       - name: Make the script files executable
         run: chmod +x my-script.sh
+
       - name: My third step - running the scripts
         run: ./my-script.sh
+        
       - run: npm install -g bats
       - run: bats -v
+
+  build:
+    name: Relase product
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            First Release with Github Actions
+          draft: false
+          prerelease: false
