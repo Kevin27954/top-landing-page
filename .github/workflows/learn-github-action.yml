@@ -2,8 +2,10 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
+    tags:
+      - 'v*'
   pull_request:
 
 # concurrency (only 1 workflow can run in a group at one time)
