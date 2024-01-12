@@ -48,7 +48,7 @@ jobs:
       - run: bats -v
 
   build:
-    name: Relase product
+    name: Relase Product
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
