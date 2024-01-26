@@ -66,10 +66,10 @@ jobs:
         id: step_one
         run: |
           cd images
-          echo "test=yellow" >> "$GITHUB_ENV"
+          echo "test=yellow" >> "$env:GITHUB_ENV"
       - name: Use the value
         run: |
-          echo "$test"
+          echo "$env:test"
       - name: Run python with value
         run: |
           python test.py
