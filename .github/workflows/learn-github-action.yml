@@ -77,7 +77,7 @@ jobs:
           echo "path=$(python test.py lamo xddd 123)" >> "$env:GITHUB_ENV"
       - name: Use Python Value
         run: |
-          echo "$env:path"
+          printf '%s\n' "$env:path"
         
       # - name: Create release
       #   id: create_release
