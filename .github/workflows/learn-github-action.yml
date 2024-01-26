@@ -2,8 +2,8 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: 
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
     tags:
       - 'v*'
   pull_request:
@@ -64,7 +64,7 @@ jobs:
       - name: Use the value
         id: step_two
         run: |
-          printf '%s\n' "$action_state" # This will output 'yellow'
+          echo "$action_state"
         
 
       # - name: Create release
