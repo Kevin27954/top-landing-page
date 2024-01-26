@@ -57,13 +57,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         
-      - name: Create release
-        id: create_release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
+      - name: Set the value
+        id: step_one
         run: |
-          gh release create "$tag" \
-              --repo="$GITHUB_REPOSITORY" \
-              --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
-              -n "First actual release test 2"
+          echo "action_state=yellow" >> "$GITHUB_ENV"
+      - name: Use the value
+        id: step_two
+        run: |
+          printf '%s\n' "$action_state" # This will output 'yellow'
+        
+
+      # - name: Create release
+      #   id: create_release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     tag: ${{ github.ref_name }}
+      #   run: |
+      #     gh release create "$tag" \
+      #         --repo="$GITHUB_REPOSITORY" \
+      #         --title="${GITHUB_REPOSITORY#*/} ${tag#v}" \
+      #         -n "First actual release test 2"
