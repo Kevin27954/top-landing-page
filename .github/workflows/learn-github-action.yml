@@ -63,7 +63,6 @@ jobs:
           cd images
           echo "test=yellow" >> "$GITHUB_ENV"
       - name: Use the value
-        id: step_two
         run: |
           echo "$test"
         
