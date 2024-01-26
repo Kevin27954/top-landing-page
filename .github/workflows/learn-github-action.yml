@@ -60,6 +60,7 @@ jobs:
       - name: Set the value
         id: step_one
         run: |
+          ls
           echo "action_state=yellow" >> "$GITHUB_ENV"
       - name: Use the value
         id: step_two
