@@ -71,10 +71,13 @@ jobs:
         run: |
           echo "$env:test"
       - name: Run python with value
+        id: py_test
         run: |
-          python test.py
+          echo "path=$(python test.py)" >> "$env:GITHUB_ENV"
+      - name: Use Python Value
+        run: |
+          echo "$env:path"
         
-
       # - name: Create release
       #   id: create_release
       #   env:
