@@ -70,11 +70,11 @@ jobs:
       - name: Use the value
         run: |
           echo "$env:test"
-          
+
       - name: Run python with value
         id: py_test
         run: |
-          echo "path=$(python test.py)" >> "$env:GITHUB_ENV"
+          echo "path=$(python test.py lamo xddd 123)" >> "$env:GITHUB_ENV"
       - name: Use Python Value
         run: |
           echo "$env:path"
